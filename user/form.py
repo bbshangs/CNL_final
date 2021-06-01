@@ -20,8 +20,7 @@ class FormRegister(FlaskForm):
 
     def validate_username(self, field):
         if UserRegister.query.filter_by(username=field.data).first():
-            raise  validators.ValidationError('UserName already exists')
-
+            raise  validators.ValidationError('UserName already exists') 
 
 class FormLogin(FlaskForm):
     username = StringField('UserName', validators=[
