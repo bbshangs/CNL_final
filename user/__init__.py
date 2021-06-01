@@ -17,3 +17,4 @@ bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
 from user import view
+
