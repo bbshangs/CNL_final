@@ -2,7 +2,7 @@
 
 ## usage:
 ```
-python init_db.py
+python init_db.py //init the database
 python flask_register.py
 ```
 ```
