@@ -1,4 +1,4 @@
-from flask_register import db
+from user import db
 
 class UserRegister(db.Model):
     __tablename__ = 'UserRegisters'

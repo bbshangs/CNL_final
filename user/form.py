@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, validators, PasswordField
-from model import UserRegister
+from user.model import UserRegister
 
 class FormRegister(FlaskForm):
     # 4 <= len(username), len(passwd) <= 999
