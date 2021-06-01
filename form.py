@@ -1,7 +1,8 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, validators, PasswordField
+from model import UserRegister
 
-class FormRegister(Form):
+class FormRegister(FlaskForm):
     # 4 <= len(username), len(passwd) <= 999
     username = StringField('UserName', validators=[
         validators.DataRequired(),
@@ -16,4 +17,7 @@ class FormRegister(Form):
         validators.DataRequired()
     ])
     submit = SubmitField('Register New Account')
- 
+
+    def validate_username(self, field):
+        if UserRegister.query.filter_by(username=field.data).first():
+            raise  validators.ValidationError('UserName already exists') 

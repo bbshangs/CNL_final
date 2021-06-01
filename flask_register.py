@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 import os
-from form import FormRegister
 
 # get path
 pjdir = os.path.abspath(os.path.dirname(__file__))
@@ -19,8 +18,16 @@ db = SQLAlchemy(app)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    from form import FormRegister
+    from model import UserRegister
     form =FormRegister()
     if form.validate_on_submit():
+        user = UserRegister(
+            username = form.username.data,
+            password = form.password.data
+        )
+        db.session.add(user)
+        db.session.commit()
         return 'Register success!'
     return render_template('register.html', form=form)
 
