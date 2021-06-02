@@ -5,7 +5,7 @@ from user.model import UserRegister
 from user.form import FormRegister, FormLogin
 
 @app.route('/')  
-def test_index():  
+def base():  
     return render_template('base.html')
 
 @app.route('/register', methods=['GET', 'POST'])
