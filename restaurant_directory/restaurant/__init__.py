@@ -18,6 +18,5 @@ app.config['SECRET_KEY']='cnl2021'
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 
-# db.init_app(app)
 from restaurant.init_db import db, Restaurant
 from restaurant import view
