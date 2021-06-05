@@ -1,12 +1,22 @@
 # CNL_final
 
 ## usage:
-### for register & login
+### 整合完了( -`ω-)
 ```
-python user/init_db.py //init the database
+/* clear & init user the database (if you want, not have to) */
+python user/init_db.py
+
 python main.py
 ```
-### for restaurant features
+
+### url
 ```
-python restaurant_directory/main.py
+default:
+http://127.0.0.1:5000/
+
+user:
+http://127.0.0.1:5000/user/[...]
+
+restaurant:
+http://127.0.0.1:5000/restaurant/[...]
 ```
