@@ -3,7 +3,7 @@
 ## usage:
 ### 整合完了( -`ω-)
 ```
-/* clear & init user the database (if you want, not have to) */
+/* clear & init user database (if you want, not have to) */
 python user/init_db.py
 
 python main.py
