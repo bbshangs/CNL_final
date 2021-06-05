@@ -20,6 +20,7 @@ class Restaurant(db.Model):
         self.get_attributes_by_place_id()
 
     def get_attributes_by_place_id(self):
+        # GOOGLE_PLACE_API_KEY = 'AIzaSyCSyaSAVqfSwnPHOT563sVq9NIho_E1gB4'
         self.url = ('https://maps.googleapis.com/maps/api/place/details/json?' + 
             'place_id=%s&fields=formatted_address,geometry,icon,name,photo,' +
             'formatted_phone_number,opening_hours,price_level' +
@@ -27,7 +28,18 @@ class Restaurant(db.Model):
 
         # Get infos from Google
         contents = req.urlopen(self.url).read()
-        contents = json.loads(contents)['result']
+        contents = json.loads(contents)
+        # print(contents)
+        try: 
+            contents = contents['result']
+        except Exception as e:
+            if 'error_message' in contents.keys():
+                print('Request error: ', contents['error_message'])
+            else:
+                print('Other error happened.')
+            print(e)
+            exit(0) 
+
         
         self.name = contents['name']
         self.location = str(tuple(contents['geometry']['location'].values())) # (lat, lng)
