@@ -18,10 +18,12 @@ GoogleMaps(app)
 app.config['SECRET_KEY']='cnl2021'
 
 # get google api key
-dotenv_path = os.path.join(pjdir, '.env')
-load_dotenv(dotenv_path, override=True) 
-GOOGLE_MAPS_EMBED_API_KEY = os.environ.get("GOOGLE_MAPS_EMBED_API_KEY")
-GOOGLE_PLACE_API_KEY=os.environ.get("GOOGLE_PLACE_API_KEY")
+# dotenv_path = os.path.join(pjdir, '.env')
+# load_dotenv(dotenv_path, override=True) 
+# GOOGLE_MAPS_EMBED_API_KEY = os.environ.get("GOOGLE_MAPS_EMBED_API_KEY")
+# GOOGLE_PLACE_API_KEY=os.environ.get("GOOGLE_PLACE_API_KEY")
+GOOGLE_MAPS_EMBED_API_KEY='AIzaSyD7mgftibpKJ7FttbOs1FshTQiFN64xGEo'
+GOOGLE_PLACE_API_KEY='AIzaSyCSyaSAVqfSwnPHOT563sVq9NIho_E1gB4'
 
 
 

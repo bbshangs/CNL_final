@@ -20,7 +20,6 @@ class Restaurant(db.Model):
         self.get_attributes_by_place_id()
 
     def get_attributes_by_place_id(self):
-        GOOGLE_PLACE_API_KEY = 'AIzaSyCSyaSAVqfSwnPHOT563sVq9NIho_E1gB4'
         self.url = ('https://maps.googleapis.com/maps/api/place/details/json?' + 
             'place_id=%s&fields=formatted_address,geometry,icon,name,photo,' +
             'formatted_phone_number,opening_hours,price_level' +
