@@ -1,5 +1,5 @@
 from flask.helpers import send_file
-from restaurant import db
+from restaurant import db, GOOGLE_PLACE_API_KEY
 import urllib.request as req
 import json
 
@@ -14,7 +14,6 @@ class Restaurant(db.Model):
     price_level = db.Column(db.String(4), unique=False, nullable=True)
     # picture = db.Column(db.String(128), unique=True, nullable=False)
     
-    key = 'AIzaSyCSyaSAVqfSwnPHOT563sVq9NIho_E1gB4'
  
     def __init__(self, place_id):
         self.place_id = place_id
@@ -23,7 +22,8 @@ class Restaurant(db.Model):
     def get_attributes_by_place_id(self):
         self.url = ('https://maps.googleapis.com/maps/api/place/details/json?' + 
             'place_id=%s&fields=formatted_address,geometry,icon,name,photo,' +
-            'formatted_phone_number,opening_hours,price_level&key=%s') % (self.place_id, self.key)
+            'formatted_phone_number,opening_hours,price_level' +
+            '&language=zh-TW&key=%s') % (self.place_id, GOOGLE_PLACE_API_KEY)
 
         # Get infos from Google
         contents = req.urlopen(self.url).read()

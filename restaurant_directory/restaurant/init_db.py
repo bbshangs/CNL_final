@@ -23,6 +23,6 @@ for id in place_ids:
     db.session.add(r)
 db.session.commit()
 
-r_all = Restaurant.query.all()
-for r in r_all:
-    print(r) 
+# r_all = Restaurant.query.all()
+# for r in r_all:
+#     print(r) 
