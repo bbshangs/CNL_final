@@ -2,6 +2,9 @@ from flask.helpers import send_file
 from restaurant import db, GOOGLE_PLACE_API_KEY
 import urllib.request as req
 import json
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 class Restaurant(db.Model):
     __tablename__ = 'Restaurants'
