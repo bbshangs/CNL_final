@@ -1,4 +1,4 @@
-from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 from user import app as user_app
 from restaurant import app as restaurant_app
