@@ -1,11 +1,12 @@
 from flask import render_template
-from restaurant import app, GOOGLE_MAPS_EMBED_API_KEY
-from restaurant.model import Restaurant
+#from restaurant import app, GOOGLE_MAPS_EMBED_API_KEY
+#from restaurant.model import Restaurant
 
+from app import app
 
-@app.route('/')
-def base():
-    return render_template('base.html')
+@app.route('/test')
+def test():
+    return render_template('restaurant/test.html')
 
 @app.route('/restaurant/<place_id>')
 def restaurant(place_id):

@@ -1,9 +1,8 @@
 # CNL_final
 
 ## usage:
-### 整合完了( -`ω-)
 ```
-/* clear & init user database (if you want, not have to) */
+/* clear & init database (if you want, not have to) */
 python user/init_db.py
 
 python main.py
@@ -14,9 +13,9 @@ python main.py
 default:
 http://127.0.0.1:5000/
 
-user:
-http://127.0.0.1:5000/user/[...]
+可以連到restaurant底下的test.html
+http://127.0.0.1:5000/test/
 
-restaurant:
+TODO:
 http://127.0.0.1:5000/restaurant/[...]
 ```
