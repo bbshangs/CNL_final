@@ -3,7 +3,7 @@
 ## usage:
 ```
 /* clear & init database (if you want, not have to) */
-python user/init_db.py
+python init_db.py
 
 python main.py
 ```
