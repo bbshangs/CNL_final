@@ -39,3 +39,5 @@ db.create_all()
 from app.home import view as home_view
 from app.user import view as user_view
 from app.restaurant import view as restaurant_view
+from app.favorite import view as favorite_view
+from app.helper import view as helper_view

@@ -27,7 +27,7 @@ body{
   content: '';
   width: 32px;
   height: 32px;
-  background: url('arrow-left.png') no-repeat;
+  background: url('/static/img/arrow-left.png') no-repeat;
   background-size: 32px;
   right: -30px;
   top: 50%;
