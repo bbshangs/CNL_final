@@ -2,6 +2,7 @@ from app import db
 
 class UserRegister(db.Model):
     __tablename__ = 'UserRegisters'
+    __bind_key__ = 'user_db'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)

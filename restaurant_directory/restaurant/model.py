@@ -1,14 +1,10 @@
 from flask.helpers import send_file
-from app.restaurant import db, GOOGLE_PLACE_API_KEY
+from restaurant import db, GOOGLE_PLACE_API_KEY
 import urllib.request as req
 import json
-import ssl
-
-ssl._create_default_https_context = ssl._create_unverified_context
 
 class Restaurant(db.Model):
     __tablename__ = 'Restaurants'
-    __bind_key__ = 'restaurant_db'
     place_id = db.Column(db.String(128), primary_key=True)
     name = db.Column(db.String(128), unique=True, nullable=False)
     location = db.Column(db.String(128), unique=True, nullable=False)# tuple, (lat, lng)
