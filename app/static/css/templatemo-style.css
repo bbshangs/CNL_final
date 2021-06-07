@@ -720,3 +720,11 @@ address {
 .panel p {
   padding: 5px 20px 30px;
 }
+
+.phone-number {
+  color: #1b6f96;
+  text-decoration:none;
+}
+.phone-number:hover {
+  color: #000000;
+}
