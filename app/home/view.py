@@ -8,4 +8,6 @@ def base():
 
 @app.route('/home/<user_id>', methods=['GET', 'POST'])  
 def home(user_id):
+    user = UserRegister.query.filter_by(id=user_id).first()
+    user.add_favorite("shiba")
     return render_template('home/home.html', user_id=user_id)

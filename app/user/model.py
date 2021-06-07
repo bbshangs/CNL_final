@@ -20,7 +20,7 @@ class UserRegister(db.Model):
         self.favorite += place_id
 
     def get_favorite(self):
-        return favorite
+        return self.favorite
 
     def __repr__(self):
         return 'username:%s' % self.username

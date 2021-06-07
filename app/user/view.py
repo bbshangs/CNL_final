@@ -9,7 +9,8 @@ def register():
     if form.validate_on_submit():
         user = UserRegister(
             username = form.username.data,
-            password = form.password.data
+            password = form.password.data,
+            favorite = ""
         )
         db.session.add(user)
         db.session.commit()
