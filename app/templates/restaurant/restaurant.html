@@ -30,9 +30,9 @@
 						</div>
 						<nav class="col-md-6 col-12 tm-nav">
 							<ul class="tm-nav-ul">
-								<li class="tm-nav-li"><a href="index.html" class="tm-nav-link">Home</a></li>
-								<li class="tm-nav-li"><a href="about.html" class="tm-nav-link">My Favorite</a></li>
-								<li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Contact</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('home') }}" class="tm-nav-link">Home</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('favorite') }}" class="tm-nav-link">My Favorite</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('helper') }}" class="tm-nav-link">Helper</a></li>
 							</ul>
 						</nav>	
 					</div>
@@ -65,9 +65,11 @@
 								<i id="period-arrow" class="period fas tm-contact-icon fa-angle-down" onclick="handlePeriod()"></i>
 							</br>
 							<div class="col-12" id="period-option" style="display: none;">
+								{% for item in restaurant_period %}
 								<br>
-									星期一
+									{{ item }}
 								</br>
+								{% endfor %}
 							</div>
 							<br class="tm-contact-link">
 								<i class="fa-heart tm-contact-icon far" id="heart" onclick="handleFavorite()"></i>

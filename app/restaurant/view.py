@@ -25,9 +25,12 @@ def restaurant(place_id):
 
     # handle period
     restaurant_period = cur_restaurant.period
-    restaurant_period = re.split(',', cur_restaurant.period[1:-1])
+    print(restaurant_period)
+    restaurant_period = re.split("', '", cur_restaurant.period[1:-1])
+    print(restaurant_period)
+
     for i in range(len(restaurant_period)):
-        restaurant_period[i] = restaurant_period[i][1:-1]
+        restaurant_period[i] = restaurant_period[i].strip().replace("'", "")
     # print(restaurant_period)
 
 
@@ -41,5 +44,5 @@ def restaurant(place_id):
         restaurant_address=cur_restaurant.address,
         restaurant_phone=cur_restaurant.phone_number,
         restaurant_phone_href=phone_number_href,
-        restaurant_period=restaurant_period[0]
+        restaurant_period=restaurant_period
     )
