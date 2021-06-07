@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
     <link href="/static/css/all.min.css" rel="stylesheet" />
 	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
+	<link href="/static/css/restaurant.css" rel="stylesheet" />
 </head>
 
 <body> 
@@ -60,7 +61,21 @@
 							</br>
 							<br class="tm-contact-link">
 								<i class="fas fa-bell tm-contact-icon"></i>
-								<a>{{ restaurant_period }}</a>
+								<a class="period" onclick="handlePeriod()">營業時間 </a>
+								<i id="period-arrow" class="period fas tm-contact-icon fa-angle-down" onclick="handlePeriod()"></i>
+							</br>
+							<div class="col-12" id="period-option" style="display: none;">
+								<br>
+									星期一
+								</br>
+							</div>
+							<br class="tm-contact-link">
+								<i class="fa-heart tm-contact-icon far" id="heart" onclick="handleFavorite()"></i>
+								<a id="heart-text">加到最愛</a>
+							</br>
+							<br class="tm-contact-link">
+								<i class="fa-dot-circle tm-contact-icon far" id="wheel" onclick="handleWheel()"></i>
+								<a id="wheel-text">加到轉盤</a>
 							</br>
 					</div>
 				</div>
@@ -91,23 +106,6 @@
 	</div>
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/parallax.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			var acc = document.getElementsByClassName("accordion");
-			var i;
-			
-			for (i = 0; i < acc.length; i++) {
-			  acc[i].addEventListener("click", function() {
-			    this.classList.toggle("active");
-			    var panel = this.nextElementSibling;
-			    if (panel.style.maxHeight) {
-			      panel.style.maxHeight = null;
-			    } else {
-			      panel.style.maxHeight = panel.scrollHeight + "px";
-			    }
-			  });
-			}	
-		});
-	</script>
+	<script src="/static/js/Restaurant.js"></script>
 </body>
 </html>

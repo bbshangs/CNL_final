@@ -1,0 +1,19 @@
+.phone-number {
+    color: #1b6f96;
+    text-decoration:none;
+  }
+.phone-number:hover {
+color: #000000;
+}
+
+.period:hover {
+cursor: pointer;
+}
+
+.fa-heart:hover {
+cursor: pointer;
+}
+
+.fa-dot-circle:hover {
+cursor: pointer;
+}
