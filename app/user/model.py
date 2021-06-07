@@ -18,6 +18,7 @@ class UserRegister(db.Model):
 
     def add_favorite(self, place_id):
         self.favorite += place_id
+        db.session.commit()
 
     def get_favorite(self):
         return self.favorite
