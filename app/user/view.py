@@ -24,7 +24,7 @@ def login():
         if user:
             if user.check_password(form.password.data):
                 user_id = user.get_id()
-                return redirect(url_for('home', user=user_id))
+                return redirect(url_for('home', user_id=user_id))
             else:
                 flash('Wrong Password')
         else:

@@ -16,12 +16,12 @@ class UserRegister(db.Model):
     def get_id(self):
         return self.id
 
-    def __repr__(self):
-        return 'username:%s' % self.username
-
     def add_favorite(self, place_id):
         self.favorite += place_id
 
-    def get_favorite():
+    def get_favorite(self):
         return favorite
 
+    def __repr__(self):
+        return 'username:%s' % self.username
+ 
