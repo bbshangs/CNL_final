@@ -23,7 +23,8 @@ def login():
         user = UserRegister.query.filter_by(username=form.username.data).first()
         if user:
             if user.check_password(form.password.data):
-                return render_template('home/home.html')
+                user_id = user.get_id()
+                return redirect(url_for('home', user=user_id))
             else:
                 flash('Wrong Password')
         else:

@@ -12,6 +12,12 @@ class UserRegister(db.Model):
         if self.password == password:
             return True
         return False
+    
+    def get_id(self):
+        return self.id
+
+    def __repr__(self):
+        return 'username:%s' % self.username
 
     def add_favorite(self, place_id):
         self.favorite += place_id
@@ -19,5 +25,3 @@ class UserRegister(db.Model):
     def get_favorite():
         return favorite
 
-    def __repr__(self):
-        return 'username:%s' % self.username
