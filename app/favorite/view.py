@@ -7,5 +7,9 @@ def favorite(user_id):
     user = UserRegister.query.filter_by(id=user_id).first()
     f = user.get_favorite()
     print("favorite = ", f)
-    return render_template('favorite/favorite.html', user_id=user_id)
+    
+    favorite_list = []
+    favorite_list.append(f)
+
+    return render_template('favorite/favorite.html', user_id=user_id, favorite_list=favorite_list)
 

@@ -45,6 +45,9 @@ https://templatemo.com/tm-539-simple-house
 			</div>
 		</div>
 		<main>
+			{% for favorite in favorite_list %}
+      			<p>{{ favorite }} </p>
+  			{% endfor %}
 		</main>
 
 		<footer class="tm-footer text-center">
