@@ -55,6 +55,5 @@ class Restaurant(db.Model):
             pass
         # self.picture = 
         
-
     def __repr__(self):
         return '<Restaurant %r>' % self.name

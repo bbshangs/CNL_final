@@ -1,7 +1,5 @@
 from flask import Flask, render_template
-
 import os
-from dotenv import load_dotenv, find_dotenv
 
 from app import app
 from app import db
