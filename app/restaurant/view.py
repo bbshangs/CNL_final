@@ -14,6 +14,9 @@ def test():
 def restaurant(place_id):
     cur_restaurant = Restaurant.query.filter_by(place_id=place_id).first()
 
+    if cur_restaurant == None:
+        return render_template('restaurant/restaurant_not_found.html')
+
     # handle phone numer
     phone_number_href = "tel:+886-"
     if cur_restaurant.phone_number[1] == '9':
@@ -31,10 +34,6 @@ def restaurant(place_id):
         restaurant_period[i] = restaurant_period[i].strip().replace("'", "")
     # print(restaurant_period)
 
-
-
-    if cur_restaurant == None:
-        return render_template('restaurant/restaurant_not_found.html')
     return render_template(
         'restaurant/restaurant.html', 
         GOOGLE_MAPS_EMBED_API_KEY=GOOGLE_MAPS_EMBED_API_KEY, 

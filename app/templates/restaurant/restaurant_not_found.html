@@ -1,13 +1,113 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    
-  </head>
-  <body>
-    <h1>Restaurant Info</h1>
 
-    <h2>Restaurant Not Found</h2>
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Restaurant Info</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <link href="/static/css/all.min.css" rel="stylesheet" />
+	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
+	<link href="/static/css/restaurant.css" rel="stylesheet" />
+</head>
 
+<body> 
 
-  </body>
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="https://i.imgur.com/99nBNNz.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="/static/img/simple-house-logo.png" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Restaurant Info</h1>
+								<h6 class="tm-site-description">餐廳資訊一覽！</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="{{ url_for('home', user_id=user_id) }}" class="tm-nav-link">Home</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('favorite', user_id=user_id) }}" class="tm-nav-link">My Favorite</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('helper') }}" class="tm-nav-link">Helper</a></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<!-- <h2 class="col-12 text-center tm-section-title">餐廳名稱</h2> -->
+				<!-- <p class="col-12 text-center">You may use <a rel="nofollow" href="https://www.ltcclock.com/downloads/simple-contact-form/" target="_blank">Simple Contact Form</a> to send email to your inbox. You can modify and use this template for your website. Header image has a parallax effect. Total 3 HTML pages included in this template.</p> -->
+				<!-- <a>Add to My Favorite</a> -->
+			</header>
+
+			<div class="tm-container-inner-2 tm-contact-section">
+				<div class="row">
+					<div class="col-12">
+							<h4 class="tm-info-title tm-text-success">查無此餐廳</h4>
+							<!-- <br>
+								<i class="fas fa-map-marker-alt tm-contact-icon"></i>
+								<a>{{ restaurant_address }}</a>      
+							</br>
+							<br class="tm-contact-link">
+								<i class="fas fa-phone tm-contact-icon"></i>
+								<a class="phone-number" href={{ restaurant_phone_href }}>{{ restaurant_phone }}</a>
+							</br>
+							<br class="tm-contact-link">
+								<i class="fas fa-bell tm-contact-icon"></i>
+								<a class="period" onclick="handlePeriod()">營業時間 </a>
+								<i id="period-arrow" class="period fas tm-contact-icon fa-angle-down" onclick="handlePeriod()"></i>
+							</br>
+							<div class="col-12" id="period-option" style="display: none;">
+								{% for item in restaurant_period %}
+								<br>
+									{{ item }}
+								</br>
+								{% endfor %}
+							</div>
+							<br class="tm-contact-link">
+								<i class="fa-heart tm-contact-icon far" id="heart" onclick="handleFavorite()"></i>
+								<a id="heart-text">加到最愛</a>
+							</br>
+							<br class="tm-contact-link">
+								<i class="fa-dot-circle tm-contact-icon far" id="wheel" onclick="handleWheel()"></i>
+								<a id="wheel-text">加到轉盤</a>
+							</br> -->
+					</div>
+				</div>
+			</div>
+            
+			<!-- <div class="tm-container-inner-2 tm-map-section">
+				<div class="row">
+					<div class="col-12">
+						<div class="tm-map">
+							<iframe 
+								src="https://www.google.com/maps/embed/v1/search?key={{ GOOGLE_MAPS_EMBED_API_KEY }}&q={{ restaurant_name }}" 
+								frameborder="0" 
+								style="border:0;" 
+								allowfullscreen=""
+							></iframe>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 Simple House 
+            
+            | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+		</footer>
+	</div>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/parallax.min.js"></script>
+	<script src="/static/js/Restaurant.js"></script>
+</body>
 </html>
