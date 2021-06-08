@@ -39,9 +39,9 @@ def search():
         # 價格
         if order == 'price':
             restaurant_list = restaurant_list.order_by(Restaurant.price_level)
-        
+
         # 我的最愛(需要user DB)
-        
+
         # 綜合（需要計算公式）
 
         result = []
@@ -61,7 +61,7 @@ def search():
                         flag = True
                         break
                 if flag == True:
-                    result.append({'place_id' : restaurant.place_id, 
+                    result.append({'place_id' : restaurant.place_id,
                                     'name' : restaurant.name,
                                     'location' : restaurant.location,
                                     'address' : restaurant.address,
@@ -70,13 +70,16 @@ def search():
                                     'price_level' : restaurant.price_level})
         else:
             for restaurant in restaurant_list:
-                result.append({'place_id' : restaurant.place_id, 
+                result.append({'place_id' : restaurant.place_id,
                                 'name' : restaurant.name,
                                 'location' : restaurant.location,
                                 'address' : restaurant.address,
                                 'phone_number' : restaurant.phone_number,
                                 'period' : restaurant.period,
                                 'price_level' : restaurant.price_level})
-        return json.dumps({'count':len(result), 'result':result}, default=str)
+                                
+        return render_template('/search/search.html', result=result)
+        # return json.dumps({'count':len(result), 'result':result}, default=str)
     else:
-        return render_template('/search/search.html')
+        result = []
+        return render_template('/search/search.html', result=result)
