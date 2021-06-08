@@ -1,6 +1,6 @@
 from app import app
 from app.restaurant.model import Restaurant
-from flask import request
+from flask import request, render_template
 import json
 
 date = {1:'星期一: ', 2:'星期二: ', 3:'星期三: ', 4:'星期四: ', 5:'星期五: ', 6:'星期六: ', 7:'星期日: '}
@@ -28,7 +28,7 @@ def search():
         # 關鍵詞
         restaurant_list = Restaurant.query.filter(Restaurant.name.ilike('%'+search+'%'))
         # 價格範圍
-        if price_max != None:
+        if price_max != None and price_max != '':
             restaurant_list = restaurant_list.filter(Restaurant.price_level.between(price_min, price_max))
 
 
@@ -46,8 +46,8 @@ def search():
 
         result = []
         # 時間範圍（僅保存週三的時間會不會比較好？）
+        day = date.get(day)
         if day != None and start != None and end != None:
-            day = date[day]
             for restaurant in restaurant_list:
                 r = restaurant.period.split(day)
                 if len(r)<0:
@@ -78,3 +78,5 @@ def search():
                                 'period' : restaurant.period,
                                 'price_level' : restaurant.price_level})
         return json.dumps({'count':len(result), 'result':result}, default=str)
+    else:
+        return render_template('/search/search.html')
