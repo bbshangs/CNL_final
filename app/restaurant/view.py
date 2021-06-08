@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from app.restaurant.model import Restaurant
 from app.restaurant import app, GOOGLE_MAPS_EMBED_API_KEY
 
@@ -13,7 +13,6 @@ def test():
 @app.route('/restaurant/<place_id>')
 def restaurant(place_id):
     cur_restaurant = Restaurant.query.filter_by(place_id=place_id).first()
-
     if cur_restaurant == None:
         return render_template('restaurant/restaurant_not_found.html')
 
@@ -43,3 +42,12 @@ def restaurant(place_id):
         restaurant_phone_href=phone_number_href,
         restaurant_period=restaurant_period
     )
+    
+@app.route('/post_sth', methods=['POST'])
+def post_sth():
+    if request.values['added'] == 'favorite':
+        print('debug: POST! favorite added')
+    elif request.values['added'] == 'wheel':
+        print('debug: POST! wheel added')
+    else:
+        print('debug: POST! sth else')

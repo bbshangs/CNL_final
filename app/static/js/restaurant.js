@@ -21,6 +21,8 @@ const handleFavorite = () => {
         heart.classList.remove("far")
         heart.classList.add("fas")
         heart_text.innerText="移除最愛"
+        alert('ALERT in const')
+        favoriteAdded()
     }
     else {
         heart.classList.remove("fas")
@@ -28,6 +30,12 @@ const handleFavorite = () => {
         heart_text.innerText="加到最愛"
     }
 }
+
+function favoriteAdded(){
+    alert('ALERT in func');
+    $.post( '/post_sth', { added: 'favorite' });
+}
+
 const handleWheel = () => {
     var wheel = document.getElementById("wheel")
     var wheel_text = document.getElementById("wheel-text")
@@ -35,10 +43,15 @@ const handleWheel = () => {
         wheel.classList.remove("far")
         wheel.classList.add("fas")
         wheel_text.innerText="移除轉盤"
+        wheelAdded()
     }
     else {
         wheel.classList.remove("fas")
         wheel.classList.add("far")
         wheel_text.innerText="加到轉盤"
     }
+}
+
+function wheelAdded(){
+    $.post( '/post_sth', { added: 'wheel' });
 }
