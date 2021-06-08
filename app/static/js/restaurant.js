@@ -21,22 +21,25 @@ const handleFavorite = () => {
         heart.classList.remove("far")
         heart.classList.add("fas")
         heart_text.innerText="移除最愛"
-        alert('ALERT in const')
         favoriteAdded()
     }
     else {
         heart.classList.remove("fas")
         heart.classList.add("far")
         heart_text.innerText="加到最愛"
+        favoriteRemove()
     }
 }
 
 function favoriteAdded(){
-    alert('ALERT in func');
-    $.post( '/post_sth', { added: 'favorite' });
+    $.post( '/<user_id>/restaurant/<place_id>', { action: 'add' });
 }
 
-const handleWheel = () => {
+function favoriteAdded(){
+    $.post( '/<user_id>/restaurant/<place_id>', { action: 'remove' });
+}
+
+/*const handleWheel = () => {
     var wheel = document.getElementById("wheel")
     var wheel_text = document.getElementById("wheel-text")
     if (wheel.classList[2] == "far") {
@@ -53,5 +56,5 @@ const handleWheel = () => {
 }
 
 function wheelAdded(){
-    $.post( '/post_sth', { added: 'wheel' });
-}
+    $.post( '/<user_id>/restaurant/<place_id>', { added: 'wheel' });
+}*/

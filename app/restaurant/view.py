@@ -1,17 +1,28 @@
 from flask import render_template, request
 from app.restaurant.model import Restaurant
 from app.restaurant import app, GOOGLE_MAPS_EMBED_API_KEY
+from app.user.model import UserRegister
 
 from app import app
 
 import re
 
-@app.route('/test')
-def test():
-    return render_template('restaurant/test.html')
+@app.route('/<user_id>/restaurant/<place_id>', methods=['GET', 'POST'])
+def restaurant(user_id, place_id):
 
-@app.route('/restaurant/<place_id>')
-def restaurant(place_id):
+    user = UserRegister.query.filter_by(user_id=user_id).first()
+    is_favorite = user.is_favorite(place_id)
+    
+    if request.method == 'POST':
+        if request.values['action'] == 'add':
+            print('debug: POST! favorite added')
+            user.add_favorite(place_id)
+        elif request.method['action'] == 'remove':
+            print('debug: POST! favorite removed')
+            user.remove_favorite(place_id)
+        else:
+            print('debug: POST! sth else')
+        
     cur_restaurant = Restaurant.query.filter_by(place_id=place_id).first()
     if cur_restaurant == None:
         return render_template('restaurant/restaurant_not_found.html')
@@ -40,14 +51,15 @@ def restaurant(place_id):
         restaurant_address=cur_restaurant.address,
         restaurant_phone=cur_restaurant.phone_number,
         restaurant_phone_href=phone_number_href,
-        restaurant_period=restaurant_period
+        restaurant_period=restaurant_period,
+        is_favorite=is_favorite
     )
     
-@app.route('/post_sth', methods=['POST'])
-def post_sth():
-    if request.values['added'] == 'favorite':
-        print('debug: POST! favorite added')
-    elif request.values['added'] == 'wheel':
-        print('debug: POST! wheel added')
-    else:
-        print('debug: POST! sth else')
+# @app.route('/post_sth', methods=['POST'])
+# def post_sth():
+#     if request.values['added'] == 'favorite':
+#         print('debug: POST! favorite added')
+#     elif request.values['added'] == 'wheel':
+#         print('debug: POST! wheel added')
+#     else:
+#         print('debug: POST! sth else')
