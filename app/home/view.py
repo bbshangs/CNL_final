@@ -10,7 +10,6 @@ def base():
 @app.route('/home/<user_id>', methods=['GET', 'POST'])  
 def home(user_id):
     user = UserRegister.query.filter_by(id=user_id).first()
-    # user.add_favorite("shiba")
 
     cheap_restaurant = Restaurant.query.filter_by(price_level=1).all()
 
