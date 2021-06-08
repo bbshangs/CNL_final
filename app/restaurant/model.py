@@ -12,7 +12,7 @@ class Restaurant(db.Model):
     place_id = db.Column(db.String(128), primary_key=True)
     name = db.Column(db.String(128), unique=True, nullable=False)
     location = db.Column(db.String(128), unique=True, nullable=False)# tuple, (lat, lng)
-    address = db.Column(db.String(128), unique=True, nullable=False)
+    address = db.Column(db.String(128), unique=False, nullable=False)
     phone_number = db.Column(db.String(32), unique=True, nullable=True)
     period = db.Column(db.String(256), unique=False, nullable=True)
     price_level = db.Column(db.String(4), unique=False, nullable=True)

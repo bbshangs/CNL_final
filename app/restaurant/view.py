@@ -21,13 +21,11 @@ def restaurant(place_id):
     else:
         phone_number_href += cur_restaurant.phone_number[1] + '-' + cur_restaurant.phone_number[2:].replace(" ", "")
     
-    # print(phone_number_href)
+    print(phone_number_href)
 
     # handle period
     restaurant_period = cur_restaurant.period
-    print(restaurant_period)
     restaurant_period = re.split("', '", cur_restaurant.period[1:-1])
-    print(restaurant_period)
 
     for i in range(len(restaurant_period)):
         restaurant_period[i] = restaurant_period[i].strip().replace("'", "")
