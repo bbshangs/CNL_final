@@ -72,7 +72,9 @@
 								{% endfor %}
 							</div>
 							<br class="tm-contact-link">
-								<i class="fa-heart tm-contact-icon far" id="heart" onclick="handleFavorite()"></i>
+								<i class="fa-heart tm-contact-icon far" id="heart" onclick="handleFavorite(
+									window.location.href.split('/')[3], window.location.href.split('/')[5]
+								)"></i>
 								<a id="heart-text">加到最愛</a>
 							</br>
 					</div>
