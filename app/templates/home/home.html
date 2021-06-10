@@ -179,14 +179,6 @@ https://templatemo.com/tm-539-simple-house
 				</form>
 				
 			</div>
-
-			{% for restaurant in result %}
-			<div class="result-field">
-				店名： {{ restaurant.name }} <br>
-				地址： {{ restaurant.address }} <br>
-				電話： {{ restaurant.phone_number }} <br>
-			</div>
-			{% endfor %}
 			
 			<div class="tm-paging-links">
 				<nav>
@@ -202,7 +194,7 @@ https://templatemo.com/tm-539-simple-house
 			<div class="row tm-gallery">
 				<!-- gallery page 1 -->
 				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
-					{% for item in cheap_restaurant %}
+					{% for item in restaurant %}
 					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
 						<figure>
 							<img src="/static/img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
