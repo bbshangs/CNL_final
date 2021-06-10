@@ -14,13 +14,17 @@
 		function Test() {
 			let price_level = sessionStorage.getItem("price_level");
 			let rating = sessionStorage.getItem("rating");
-			// alert(rating);
+			let is_open = sessionStorage.getItem("is_open");
 
 			var selectBox = document.getElementById("price_level");
 			selectBox.selectedIndex = price_level;
 
 			var selectBox = document.getElementById("rating");
 			selectBox.selectedIndex = rating;
+
+			var checkBox = document.getElementById("is_open");
+			if(is_open == "true")
+				checkBox.click();
 		}
 
 		function ChangePrice() {
@@ -35,6 +39,13 @@
 			var selectedValue = selectBox.selectedIndex;
 			
 			sessionStorage.setItem("rating", selectedValue);
+		}
+
+		function ChangeIsOpen() {
+			var checkBox = document.getElementById("is_open");
+			var value = checkBox.checked;
+			
+			sessionStorage.setItem("is_open", value);
 		}
 	</script>
 
@@ -84,6 +95,16 @@
 		input[type="checkbox"] {
         	vertical-align: middle;
     	}
+
+		table {
+			table-layout: fixed;
+			width: 100%;
+		}
+
+		td {
+			width: 100% / 3;
+			text-align: center;
+		}
 	
 	</style>
 </head>
@@ -136,7 +157,7 @@ https://templatemo.com/tm-539-simple-house
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			
 			<div class="search-area">
-				<h1>Search</h1>
+				<h2 class="col-12 text-center tm-section-title">Search</h2>
 				
 				<form method=post enctype=multipart/form-data>
 					<div class="search-field">
@@ -170,7 +191,7 @@ https://templatemo.com/tm-539-simple-house
 								</td>
 								
 								<td>
-									<input type="checkbox" name="is_open">
+									<input type="checkbox" name="is_open" id="is_open" onchange="ChangeIsOpen()">
 									<label for="is_open">營業中</label>
 								</td>
 							</tr>
@@ -205,7 +226,7 @@ https://templatemo.com/tm-539-simple-house
 									</a>
 								</h4>
 								<p class="tm-gallery-description">{{ item.address }}</p>
-								<p class="tm-gallery-price">x 星</p>
+								<p class="tm-gallery-price">{{ item.rating }} 星</p>
 							</figcaption>
 						</figure>
 					</article>
