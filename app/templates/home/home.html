@@ -7,8 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple House Template</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />   
 	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
+
+	<script>
+		function SetRange(id) {
+			var val;
+	
+			if (id == 0) {
+				val = document.getElementById("price_min").value
+				document.getElementById("price_max").min = val;
+			}
+	
+			else {
+				val = document.getElementById("price_max").value
+				document.getElementById("price_min").max = val;
+			}
+		}
+	
+		function GetTimeNow() {
+			var d = new Date();
+			var day = d.getDay() + 1;
+			var time = d.getHours() + ":" + ("0" + d.getMinutes()).slice(-2);
+	
+			document.getElementById("day").value = day;
+			document.getElementById("start").value = time;
+			document.getElementById("end").value = time;
+		}
+	</script>
+
+	<style>
+		.search-area {
+			width: 40%;
+			margin: auto;
+			padding: 5px;
+		}
+	
+		.search-field {
+			padding: 5px;
+			border: solid black;
+		}
+	
+		.query-field {
+			padding: 5px;
+		}
+	
+		.result-field {
+			padding: 5px;
+			border-top: solid black;
+		}
+	
+		.search-box {
+			background-color: Transparent;
+			outline: none;
+			border: none;
+			width: 95%;
+		}
+	
+		:focus::placeholder {
+			opacity: 0;
+		}
+	
+		button, button:hover  {
+			background-color: Transparent;
+			border: none;
+		}
+	
+		.short-input {
+			width: 50px;
+			text-align: center;
+		}
+	
+		option {
+	
+		}
+	
+	</style>
 </head>
 <!--
 
@@ -57,124 +131,44 @@ https://templatemo.com/tm-539-simple-house
 				</ul>
 			</header>
 			
-
-
-
-
-			
-			<!doctype html>
-			<html>
-			<head>
-			<title>Search</title>
-			
-			<style>
-				.page {
-					width: 40%;
-					margin: auto;
-					padding: 5px;
-				}
-			
-				.search-field {
-					padding: 5px;
-					border: solid black;
-				}
-			
-				.query-field {
-					padding: 5px;
-				}
-			
-				.result-field {
-					padding: 5px;
-					border-top: solid black;
-				}
-			
-				.search-box {
-					background-color: Transparent;
-					outline: none;
-					border: none;
-					width: 95%;
-				}
-			
-				:focus::placeholder {
-					opacity: 0;
-				}
-			
-				button, button:hover  {
-					background-color: Transparent;
-					border: none;
-				}
-			
-				.short-input {
-					width: 50px;
-					text-align: center;
-				}
-			
-				option {
-			
-				}
-			
-			</style>
-			</head>
-			
-			<body>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 			
-			<h1>Search</h1>
-			
-			<form method=post enctype=multipart/form-data>
-				<div class="search-field">
-					<input type="text"  name="search" class="search-box" placeholder="Keyword search">
-					<button type="submit"><i class="fa fa-search"></i></button>
-				</div>
-			
-				<div class="query-field">
-					<table>
-						<tr>
-							<td>排序</td>
-							<td>
-								<input type="text" class="short-input" name="order">
-							</td>
-						</tr>
-						<tr>
-							<td>價格</td>
-							<td>
-								<input type="number" class="short-input" name="price_min" min="0" max="3"> -
-								<input type="number" class="short-input" name="price_max" min="0" max="3">
-							</td>
-						</tr>
-						<tr>
-							<td>星期</td>
-							<td>
-								<input type="number" class="short-input" name="day" min="1" max="7">
-							</td>
-						</tr>
-						<tr>
-							<td>時間</td>
-							<td>
-								<input type="text" class="short-input" name="start"> -
-								<input type="text" class="short-input" name="end">
-							</td>
-						</tr>
-						<tr>
-							<td>rate</td>
-							<td><input type="text" class="short-input" name="rate"></td>
-						</tr>
-						<tr>
-							<td>tag</td>
-							<td><input type="text" class="short-input" name="tag"></td>
-						</tr>
-						<tr>
-							<td>lat</td>
-							<td><input type="text" class="short-input" name="lat"></td>
-						</tr>
-						<tr>
-							<td>lng</td>
-							<td><input type="text" class="short-input" name="lng"></td>
-						</tr>
-					</table>
-				</div>
-			</form>
-			
+			<div class="search-area">
+				<h1>Search</h1>
+				
+				<form method=post enctype=multipart/form-data>
+					<div class="search-field">
+						<input type="text"  name="search" class="search-box" placeholder="Keyword search">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</div>
+				
+					<div class="query-field">
+						<table>
+							<tr>
+								<td>排序</td>
+								<td>
+									<input type="text" class="short-input" name="order">
+								</td>
+								<td>價格</td>
+								<td>
+									<input type="number" class="short-input" name="price_min" min="0" max="3"> -
+									<input type="number" class="short-input" name="price_max" min="0" max="3">
+								</td>
+								<td>
+									<input type="checkbox" name="is_open" id="is_open" onclick="GetTimeNow()">
+									<label for="is_open">營業中</label>
+								</td>
+							</tr>
+						</table>
+						
+						<input type="hidden" id="day" name="day">
+						<input type="hidden" id="start" name="start">
+						<input type="hidden" id="end" name="end">
+					</div>
+				</form>
+				
+			</div>
+
 			{% for restaurant in result %}
 			<div class="result-field">
 				店名： {{ restaurant.name }} <br>
@@ -183,16 +177,6 @@ https://templatemo.com/tm-539-simple-house
 			</div>
 			{% endfor %}
 			
-			</body>
-			</html>
-			
-			
-			
-
-
-
-
-
 			<div class="tm-paging-links">
 				<nav>
 					<ul>
@@ -213,7 +197,7 @@ https://templatemo.com/tm-539-simple-house
 							<img src="/static/img/gallery/01.jpg" alt="Image" class="img-fluid tm-gallery-img" />
 							<figcaption>
 								<h4 class="tm-gallery-title">
-									<a href="{{ url_for('restaurant', place_id=item.place_id) }}" style="text-decoration:none; color: #1A6692;">
+									<a href="{{ url_for('restaurant', place_id=item.place_id, user_id=user_id) }}" style="text-decoration:none; color: #1A6692;">
 										{{ item.name }}
 									</a>
 								</h4>
