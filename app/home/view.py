@@ -12,8 +12,6 @@ def base():
 def home(user_id):
     user = UserRegister.query.filter_by(id=user_id).first()
 
-    cheap_restaurant = Restaurant.query.filter_by(price_level=1).all()
-
 
     if request.method == 'POST':
         param = request.values
@@ -22,11 +20,12 @@ def home(user_id):
         r0 = _search(0)
         r = random.sample(r0,min(8,len(r0)))
 
+    print(r)
 
     return render_template(
         'home/home.html', 
         user_id=user_id,
-        cheap_restaurant=cheap_restaurant,
+        cheap_restaurant=r,
         result=r
     )
 
