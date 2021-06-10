@@ -1,18 +1,73 @@
-{% extends "bootstrap/base.html" %}  
-{% import "bootstrap/wtf.html" as wtf %}   
-{% block title %}Login Page{% endblock title %}  
-{% block content %}
-<div class="login_form">
-	{% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul class="flash">
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-	<h2>Enter your account to start.</h2>
-    {{ wtf.quick_form(form) }}
-</div>    
-{% endblock content%}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Simple House Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />   
+	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
+	<link href="/static/css/home.css" rel="stylesheet" />
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body onload="Test()"> 
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="/static/img/simple-house-01.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="/static/img/simple-house-logo.png" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Food Recommendation</h1>
+								<h6 class="tm-site-description">食物選擇系統 選擇食物的好幫手！</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="{{ url_for('base') }}" class="tm-nav-link">Home</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('register') }}" class="tm-nav-link">Register</a></li>
+								<li class="tm-nav-li"><a href="{{ url_for('login') }}" class="tm-nav-link">Login</a></li>
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<main>
+			{% import "bootstrap/wtf.html" as wtf %}   
+			<header class="login_form">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<ul class="flash">
+							{% for message in messages %}
+								<li>{{ message }}</li>
+							 {% endfor %}
+						</ul>
+    				{% endif %}
+    			{% endwith %}
+				<h2 class="col-12 text-center tm-section-title">Enter your account to start.</h2>
+    			{{ wtf.quick_form(form) }}
+			</header>    
+		</main>
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 Simple House 
+            
+            | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+		</footer>
+	</div>
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/parallax.min.js"></script>
+	<script src="/static/js/home.js"></script>
+</body>
+</html>
