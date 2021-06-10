@@ -1,0 +1,55 @@
+.search-area {
+    width: 40%;
+    margin: auto;
+    padding: 5px;
+}
+
+.search-field {
+    max-width: 100%;
+    padding: 5px;
+    border: solid black;
+}
+
+.query-field {
+    padding: 5px;
+}
+
+.result-field {
+    padding: 5px;
+    border-top: solid black;
+}
+
+.search-box {
+    background-color: Transparent;
+    outline: none;
+    border: none;
+    width: 93%;
+}
+
+:focus::placeholder {
+    opacity: 0;
+}
+
+button, button:hover  {
+    background-color: Transparent;
+    border: none;
+}
+
+.short-input {
+    width: 50px;
+    text-align: center;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+td {
+    width: 100% / 3;
+    text-align: center;
+}

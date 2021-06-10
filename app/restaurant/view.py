@@ -41,6 +41,7 @@ def restaurant(user_id, place_id):
         restaurant_phone_href=phone_number_href,
         restaurant_period=restaurant_period,
         is_favorite=is_favorite,
+        user_id=user_id
     )
  
 @app.route('/post_sth', methods=['POST'])
