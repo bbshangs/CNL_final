@@ -61,7 +61,7 @@
 			background-color: Transparent;
 			outline: none;
 			border: none;
-			width: 95%;
+			width: 93%;
 		}
 	
 		:focus::placeholder {
@@ -78,9 +78,9 @@
 			text-align: center;
 		}
 	
-		option {
-	
-		}
+		input[type="checkbox"] {
+        	vertical-align: middle;
+    	}
 	
 	</style>
 </head>
@@ -145,25 +145,35 @@ https://templatemo.com/tm-539-simple-house
 					<div class="query-field">
 						<table>
 							<tr>
-								<td>排序</td>
 								<td>
-									<input type="text" class="short-input" name="order">
+									價格
+									<select name="price_level">
+										<option value="" selected>--</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
 								</td>
-								<td>價格</td>
+
 								<td>
-									<input type="number" class="short-input" name="price_min" min="0" max="3"> -
-									<input type="number" class="short-input" name="price_max" min="0" max="3">
+									評價
+									<select name="">
+										<option value="" selected>--</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+
 								</td>
+								
 								<td>
-									<input type="checkbox" name="is_open" id="is_open" onclick="GetTimeNow()">
+									<input type="checkbox" name="is_open">
 									<label for="is_open">營業中</label>
 								</td>
 							</tr>
 						</table>
-						
-						<input type="hidden" id="day" name="day">
-						<input type="hidden" id="start" name="start">
-						<input type="hidden" id="end" name="end">
 					</div>
 				</form>
 				
