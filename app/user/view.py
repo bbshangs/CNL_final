@@ -2,12 +2,15 @@ from app.user.model import UserRegister
 from app.user.form import FormRegister, FormLogin
 from app import app, db
 from flask import render_template, flash, redirect, url_for
+from hashlib import sha256
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = FormRegister()
     if form.validate_on_submit():
+        id_hash=sha256(form.username.data.encode()).hexdigest()
         user = UserRegister(
+            id = id_hash,
             username = form.username.data,
             password = form.password.data,
             favorite = ""

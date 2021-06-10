@@ -4,7 +4,7 @@ class UserRegister(db.Model):
     __tablename__ = 'UserRegisters'
     __bind_key__ = 'user_db'
     count = 27
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(80), primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(50), nullable=False)
     favorite = db.Column(db.String(count*100))
