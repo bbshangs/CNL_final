@@ -11,28 +11,30 @@
 	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
 
 	<script>
-		function SetRange(id) {
-			var val;
-	
-			if (id == 0) {
-				val = document.getElementById("price_min").value
-				document.getElementById("price_max").min = val;
-			}
-	
-			else {
-				val = document.getElementById("price_max").value
-				document.getElementById("price_min").max = val;
-			}
+		function Test() {
+			let price_level = sessionStorage.getItem("price_level");
+			let rating = sessionStorage.getItem("rating");
+			// alert(rating);
+
+			var selectBox = document.getElementById("price_level");
+			selectBox.selectedIndex = price_level;
+
+			var selectBox = document.getElementById("rating");
+			selectBox.selectedIndex = rating;
 		}
-	
-		function GetTimeNow() {
-			var d = new Date();
-			var day = d.getDay() + 1;
-			var time = d.getHours() + ":" + ("0" + d.getMinutes()).slice(-2);
-	
-			document.getElementById("day").value = day;
-			document.getElementById("start").value = time;
-			document.getElementById("end").value = time;
+
+		function ChangePrice() {
+			var selectBox = document.getElementById("price_level");
+			var selectedValue = selectBox.selectedIndex;
+
+			sessionStorage.setItem("price_level", selectedValue);
+		}
+
+		function ChangeRating() {
+			var selectBox = document.getElementById("rating");
+			var selectedValue = selectBox.selectedIndex;
+			
+			sessionStorage.setItem("rating", selectedValue);
 		}
 	</script>
 
@@ -44,6 +46,7 @@
 		}
 	
 		.search-field {
+			max-width: 100%;
 			padding: 5px;
 			border: solid black;
 		}
@@ -91,8 +94,7 @@ Simple House
 https://templatemo.com/tm-539-simple-house
 
 -->
-<body> 
-
+<body onload="Test()"> 
 	<div class="container">
 	<!-- Top box -->
 		<!-- Logo & Site Name -->
@@ -147,8 +149,8 @@ https://templatemo.com/tm-539-simple-house
 							<tr>
 								<td>
 									價格
-									<select name="price_level">
-										<option value="" selected>--</option>
+									<select name="price_level" id="price_level" onchange="ChangePrice()">
+										<option value="">--</option>
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -157,13 +159,12 @@ https://templatemo.com/tm-539-simple-house
 
 								<td>
 									評價
-									<select name="">
-										<option value="" selected>--</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
+									<select name="rating" id="rating" onchange="ChangeRating()">
+										<option value="">--</option>
+										<option value="1">1-2</option>
+										<option value="2">2-3</option>
+										<option value="3">3-4</option>
+										<option value="4">4-5</option>
 									</select>
 
 								</td>
