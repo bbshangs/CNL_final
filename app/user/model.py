@@ -19,6 +19,8 @@ class UserRegister(db.Model):
 
     def is_favorite(self, place_id):
         id_list = self.favorite.split()
+        for id in id_list:
+            print(place_id == id)
         if place_id in id_list:
             return True
         return False

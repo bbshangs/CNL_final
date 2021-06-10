@@ -41,8 +41,10 @@ function favoriteRemove(user_id, place_id){
 
 function showFavoriteHeart(is_favorite){
     var heart = document.getElementById("heart");
+    var heart_text = document.getElementById("heart-text");
     if(is_favorite == "True"){
         heart.classList.remove("far");
         heart.classList.add("fas");
+        heart_text.innerText="移除最愛";
     }
 }

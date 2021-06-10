@@ -48,7 +48,6 @@ def restaurant(user_id, place_id):
 def post_sth():
     user_id = request.values['user_id']
     place_id = request.values['place_id']
-    print('debug: ', user_id, place_id)
     user = UserRegister.query.filter_by(id=user_id).first()
     print('debug: POST user = ', user)
     if request.values['action'] == 'add':
