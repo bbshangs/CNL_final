@@ -8,11 +8,12 @@ from hashlib import sha256
 def register():
     form = FormRegister()
     if form.validate_on_submit():
-        id_hash=sha256(form.username.data.encode()).hexdigest()
+        id_hash = sha256(form.username.data.encode()).hexdigest()
+        password_hash = sha256(form.password.data.encode()).hexdigest()
         user = UserRegister(
             id = id_hash,
             username = form.username.data,
-            password = form.password.data,
+            password = password_hash,
             favorite = ""
         )
         db.session.add(user)
@@ -25,8 +26,9 @@ def login():
     form = FormLogin()
     if form.validate_on_submit():
         user = UserRegister.query.filter_by(username=form.username.data).first()
+        password_hash = sha256(form.password.data.encode()).hexdigest()
         if user:
-            if user.check_password(form.password.data):
+            if user.check_password(password_hash):
                 user_id = user.get_id()
                 return redirect(url_for('home', user_id=user_id))
             else:
