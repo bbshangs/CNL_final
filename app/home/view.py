@@ -17,20 +17,17 @@ def home(user_id):
     if request.method == 'POST':
         param = request.values
         print("param = ", param)
-        r = _search(param)
-        print("with filter")
+        result = _search(param)
     else:
-        r0 = _search(0)
-        r = random.sample(r0,min(10,len(r0)))
-        print("all")
+        result = _search(0)
+        result = random.sample(result,min(16,len(result)))
 
     # print(r)
 
     return render_template(
         'home/home.html', 
         user_id=user_id,
-        cheap_restaurant=r,
-        result=r
+        restaurant=result
     )
 
 
@@ -43,7 +40,7 @@ def _search(param):
     else:
         search = param.get('search', '')    #搜尋關鍵詞，可空著
         price_level = param.get('price_level')
-        rate = param.get('rate')
+        rating = param.get('rating')
         is_open = param.get('is_open')
 
         # 搜尋
@@ -53,6 +50,9 @@ def _search(param):
         if price_level != '':
             restaurant_list = restaurant_list.filter(Restaurant.price_level.is_(price_level))
         # 評分
+        if rating != None:
+            print(rating)
+            restaurant_list = restaurant_list.filter(Restaurant.rating.between(int(rating),int(rating) + 1))
 
         # 是否營業
         result = []
@@ -63,11 +63,11 @@ def _search(param):
             for restaurant in restaurant_list:
                 period = restaurant.period.split(day)
                 print("name = ", restaurant.name)
-                print("first = ", period)
+                # print("first = ", period)
                 if len(period)<0:
                     continue
                 period = period[1].split('\',')[0].split(', ')
-                print("second = ", period)
+                # print("second = ", period)
                 
                 flag = False
                 for p in period:
@@ -76,7 +76,8 @@ def _search(param):
                     if p.split(' – ')[0] <= time and p.split(' – ')[1] >= time:
                         flag = True
                         break
-                print("flag = ", flag)
+                # print("flag = ", flag)
+                print("rating = ", restaurant.rating)
                 print("\n")
                 if flag:
                     result.append(restaurant)

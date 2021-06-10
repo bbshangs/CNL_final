@@ -16,6 +16,7 @@ class Restaurant(db.Model):
     phone_number = db.Column(db.String(32), unique=True, nullable=True)
     period = db.Column(db.String(256), unique=False, nullable=True)
     price_level = db.Column(db.String(4), unique=False, nullable=True)
+    rating = db.Column(db.Float, unique=False, nullable=True)
     # picture = db.Column(db.String(128), unique=True, nullable=False)
     
  
@@ -26,7 +27,7 @@ class Restaurant(db.Model):
     def get_attributes_by_place_id(self):
         self.url = ('https://maps.googleapis.com/maps/api/place/details/json?' + 
             'place_id=%s&fields=formatted_address,geometry,icon,name,photo,' +
-            'formatted_phone_number,opening_hours,price_level' +
+            'formatted_phone_number,opening_hours,price_level,rating' +
             '&language=zh-TW&key=%s') % (self.place_id, GOOGLE_PLACE_API_KEY)
 
         # Get infos from Google
@@ -49,6 +50,7 @@ class Restaurant(db.Model):
         self.address = contents['formatted_address']
         self.phone_number = contents['formatted_phone_number']
         self.period = str(contents['opening_hours']['weekday_text'])
+        self.rating = str(contents['rating'])
         try:
             self.price_level = contents['price_level']
         except:
