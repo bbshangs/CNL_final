@@ -50,7 +50,7 @@ def _search(param):
         if price_level != '':
             restaurant_list = restaurant_list.filter(Restaurant.price_level.is_(price_level))
         # 評分
-        if rating != None:
+        if rating != '':
             print(rating)
             restaurant_list = restaurant_list.filter(Restaurant.rating.between(int(rating),int(rating) + 1))
 
