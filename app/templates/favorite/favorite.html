@@ -45,9 +45,29 @@ https://templatemo.com/tm-539-simple-house
 			</div>
 		</div>
 		<main>
-			{% for favorite in favorite_list %}
-      			<p>{{ favorite }} </p>
-  			{% endfor %}
+			<h1 class="col-12 text-center tm-section-title"></h1>
+			<div class="row tm-gallery">
+				<div class="tm-gallery-page">
+					{% for restaurant in restaurant_list %}
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<figcaption>
+								<h4 class="tm-gallery-title">
+									<a href="{{ url_for('restaurant', place_id=restaurant.place_id, user_id=user_id) }}" style="text-decoration:none; color: #1A6692;">
+										{{ restaurant.name }}
+									</a>
+								</h4>
+								<p class="tm-gallery-description">{{ restaurant.address }}</p>
+								<p class="tm-gallery-price">{{ restaurant.rating }} 星</p>
+							</figcaption>
+						</figure>
+					</article>
+					{% endfor %}
+					
+				</div> 
+				
+			</div>
+
 		</main>
 
 		<footer class="tm-footer text-center">
