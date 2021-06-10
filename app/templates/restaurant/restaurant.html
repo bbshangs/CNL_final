@@ -10,6 +10,9 @@
     <link href="/static/css/all.min.css" rel="stylesheet" />
 	<link href="/static/css/templatemo-style.css" rel="stylesheet" />
 	<link href="/static/css/restaurant.css" rel="stylesheet" />
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/parallax.min.js"></script>
+	<script src="/static/js/restaurant.js"></script>
 </head>
 
 <body> 
@@ -76,7 +79,14 @@
 									window.location.href.split('/')[3], window.location.href.split('/')[5]
 								)"></i>
 								<a id="heart-text">加到最愛</a>
+								
 							</br>
+							<script type="text/javascript">
+								var is_favorite = '{{ is_favorite }}'
+								alert(is_favorite)
+								console.log("in script")
+								showFavoriteHeart(is_favorite)
+							</script>
 					</div>
 				</div>
 			</div>
@@ -104,8 +114,10 @@
             | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
 		</footer>
 	</div>
+	<!--
 	<script src="/static/js/jquery.min.js"></script>
 	<script src="/static/js/parallax.min.js"></script>
-	<script src="/static/js/Restaurant.js"></script>
+	<script src="/static/js/restaurant.js"></script>
+	-->
 </body>
 </html>

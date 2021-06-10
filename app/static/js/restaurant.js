@@ -38,3 +38,11 @@ function favoriteAdded(user_id, place_id){
 function favoriteRemove(user_id, place_id){
     $.post( '/post_sth', { action: 'remove', user_id: user_id, place_id: place_id } );
 }
+
+function showFavoriteHeart(is_favorite){
+    var heart = document.getElementById("heart");
+    if(is_favorite == "True"){
+        heart.classList.remove("far");
+        heart.classList.add("fas");
+    }
+}
