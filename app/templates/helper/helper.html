@@ -40,23 +40,52 @@
             <li><a href="{{ url_for('helper', flag=0, user_id=user_id) }}">Choose From All</a></li>
             <li><a href="{{ url_for('helper', flag=1, user_id=user_id) }}">Choose From Favorite</a></li>
           </ul>
+		  {% set letters='黃永雯柴犬大好き' %}
           <div id="mainbox" class="mainbox">
             <div id="box" class="box">
               <div class="box1">
-                <span class="span1"><b class="itemname">{{ restaurant_list[0].name }}</b></span>
-                <span class="span2"><b class="itemname">{{ restaurant_list[1].name }}</b></span>
-                <span class="span3"><b class="itemname">{{ restaurant_list[2].name }}</b></span>
-                <span class="span4"><b class="itemname">{{ restaurant_list[3].name }}</b></span>
+				  <span class="span1"><b class="itemname">{{ letters[0] }}</b></span>
+				  <span class="span2"><b class="itemname">{{ letters[1] }}</b></span>
+				  <span class="span3"><b class="itemname">{{ letters[2] }}</b></span>
+				  <span class="span4"><b class="itemname">{{ letters[3] }}</b></span>
               </div>
               <div class="box2">
-                <span class="span1"><b class="itemname">{{ restaurant_list[4].name }}</b></span>
-                <span class="span2"><b class="itemname">{{ restaurant_list[5].name }}</b></span>
-                <span class="span3"><b class="itemname">{{ restaurant_list[6].name }}</b></span>
-                <span class="span4"><b class="itemname">{{ restaurant_list[7].name }}</b></span>
+				  <span class="span1"><b class="itemname">{{ letters[4] }}</b></span>
+				  <span class="span2"><b class="itemname">{{ letters[5] }}</b></span>
+				  <span class="span3"><b class="itemname">{{ letters[6] }}</b></span>
+				  <span class="span4"><b class="itemname">{{ letters[7] }}</b></span>
               </div>
             </div> 
             <button class="spin" onclick="rotateFunction()">SPIN</button>
           </div>
+
+			<h1 class="col-12 text-center tm-section-title"></h1>
+			<div class="row tm-gallery">
+				<div class="tm-gallery-page">
+					{% for i in range(8) %}
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<figcaption>
+								{{ letters[i] }}
+								<h4 class="tm-gallery-title">
+									<a href="{{ url_for('restaurant', place_id=restaurant_list[i].place_id, user_id=user_id) }}" style="text-decoration:none; color: #1A6692;">
+										{{ restaurant_list[i].name }}
+									</a>
+								</h4>
+								<p class="tm-gallery-description">{{ restaurant_list[i].address }}</p>
+								<p class="tm-gallery-price">{{ restaurant_list[i].rating }} 星</p>
+							</figcaption>
+						</figure>
+					</article>
+					{% endfor %}
+					
+				</div> 
+				
+			</div>
+
+
+
+
       </main>
       <footer class="tm-footer text-center">
         <p>Copyright &copy; 2020 Simple House 
