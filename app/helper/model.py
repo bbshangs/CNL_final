@@ -1,7 +1,6 @@
 from app.user.model import UserRegister
 from app.restaurant.model import Restaurant
-from sqlalchemy.sql.expression import func
-from flask import session
+from sqlalchemy.sql.expression import func, select
 
 import random
 
@@ -9,8 +8,7 @@ def get_random_restaurant(flag, user_id):
     result_list = []
     if flag == "0": #all
         for i in range(8):
-            restaurant = session.query(Restaurant).order_by(func.rand()).first
-            print(f'Choose Restaurant: {restaurant.name}')
+            restaurant = Restaurant.query.order_by(func.random()).first()
             result_list.append(restaurant)
     
     elif flag == "1": #favorite
@@ -20,5 +18,4 @@ def get_random_restaurant(flag, user_id):
             restaurant = Restaurant.query.filter_by(place_id=favorite).first()
             restaurant_list.append(restaurant)
         result_list = random.sample(restaurant_list, 8)
-    print(f'Restaurant List at backend: {result_list}')
     return result_list

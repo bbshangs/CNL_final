@@ -39,10 +39,12 @@ span{
   height: 50%;
   display: inline-block;
   position: absolute;
+  font-size:smaller;
 }
 .span1{
   clip-path: polygon(0 92%, 100% 50%, 0 8%);
   background-color: #db7f95;
+  font-size:3px;
   top: 120px;
   left: 0;
 }
@@ -63,6 +65,10 @@ span{
   background-color: #f2e066;
   top: 0;
   left: 120px;
+}
+
+.itemname {
+  font-size:100%;
 }
 .box1 .span3 b{
    transform: translate(-50%, -50%) rotate(-270deg);
