@@ -6,7 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Restaurant Selector</title>
       <link href="/static/css/style.css" rel="stylesheet" type="text/css" />
-       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
       <link href="/static/css/all.min.css" rel="stylesheet" />
       <link href="/static/css/templatemo-style.css" rel="stylesheet" />
   </head>
@@ -27,7 +27,7 @@
                 <ul class="tm-nav-ul">
                   <li class="tm-nav-li"><a href="{{ url_for('home', user_id=user_id) }}" class="tm-nav-link">Home</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('favorite', user_id=user_id) }}" class="tm-nav-link">My Favorite</a></li>
-                  <li class="tm-nav-li"><a href="{{ url_for('helper', flag=0, user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
+                  <li class="tm-nav-li"><a href="{{ url_for('helper', user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('base') }}" class="tm-nav-link">Logout</a></li>
                 </ul>
               </nav>  
@@ -36,23 +36,27 @@
         </div>
       </div>
         <main>
-            <div id="mainbox" class="mainbox">
-              <div id="box" class="box">
-                <div class="box1">
-                  <span class="span1"><b>Restaurant1</b></span>
-                  <span class="span2"><b>Restaurant2</b></span>
-                  <span class="span3"><b>Restaurant3</b></span>
-                  <span class="span4"><b>Restaurant4</b></span>
-                </div>
-                <div class="box2">
-                  <span class="span1"><b>Restaurant5</b></span>
-                  <span class="span2"><b>Restaurant6</b></span>
-                  <span class="span3"><b>Restaurant7</b></span>
-                  <span class="span4"><b>Restaurant8</b></span>
-                </div>
-              </div> 
-              <button class="spin" onclick="rotateFunction()">SPIN</button>
-            </div>
+          <ul>
+            <li><a href="{{ url_for('home', user_id=user_id) }}">Choose From All</a></li>
+            <li><a href="{{ url_for('favorite', user_id=user_id) }}">Choose From Favorite</a></li>
+          </ul>
+          <div id="mainbox" class="mainbox">
+            <div id="box" class="box">
+              <div class="box1">
+                <span class="span1"><b>Restaurant1</b></span>
+                <span class="span2"><b>Restaurant2</b></span>
+                <span class="span3"><b>Restaurant3</b></span>
+                <span class="span4"><b>Restaurant4</b></span>
+              </div>
+              <div class="box2">
+                <span class="span1"><b>Restaurant5</b></span>
+                <span class="span2"><b>Restaurant6</b></span>
+                <span class="span3"><b>Restaurant7</b></span>
+                <span class="span4"><b>Restaurant8</b></span>
+              </div>
+            </div> 
+            <button class="spin" onclick="rotateFunction()">SPIN</button>
+          </div>
       </main>
       <footer class="tm-footer text-center">
         <p>Copyright &copy; 2020 Simple House 

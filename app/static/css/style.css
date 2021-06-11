@@ -7,6 +7,8 @@
 
 .mainbox{
   position: relative;
+  right: -300px;
+  bottom: -50px;
   width: 500px;
   height: 500px;
 }
