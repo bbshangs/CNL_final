@@ -22,4 +22,6 @@ def get_random_restaurant(flag, user_id):
 
         for i in range(8):
             result_list.append(random.sample(restaurant_list, 1))
+
+    print(f'Restaurant List at Model: {result_list}')
     return result_list

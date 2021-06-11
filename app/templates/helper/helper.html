@@ -27,7 +27,7 @@
                 <ul class="tm-nav-ul">
                   <li class="tm-nav-li"><a href="{{ url_for('home', user_id=user_id) }}" class="tm-nav-link">Home</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('favorite', user_id=user_id) }}" class="tm-nav-link">My Favorite</a></li>
-                  <li class="tm-nav-li"><a href="{{ url_for('helper', flag = 0, user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
+                  <li class="tm-nav-li"><a href="{{ url_for('helper', flag=0, user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('base') }}" class="tm-nav-link">Logout</a></li>
                 </ul>
               </nav>  
@@ -42,20 +42,18 @@
           </ul>
           <div id="mainbox" class="mainbox">
             <div id="box" class="box">
-              {% for item in restaurant_list %}
               <div class="box1">
-                <span class="span1"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span2"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span3"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span4"><b class="itemname">{{ item.name }}</b></span>
+                <span class="span1"><b class="itemname">{{ restaurant_list[0].name }}</b></span>
+                <span class="span2"><b class="itemname">{{ restaurant_list[1].name }}</b></span>
+                <span class="span3"><b class="itemname">{{ restaurant_list[2].name }}</b></span>
+                <span class="span4"><b class="itemname">{{ restaurant_list[3].name }}</b></span>
               </div>
               <div class="box2">
-                <span class="span1"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span2"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span3"><b class="itemname">{{ item.name }}</b></span>
-                <span class="span4"><b class="itemname">{{ item.name }}</b></span>
+                <span class="span1"><b class="itemname">{{ restaurant_list[4].name }}</b></span>
+                <span class="span2"><b class="itemname">{{ restaurant_list[5].name }}</b></span>
+                <span class="span3"><b class="itemname">{{ restaurant_list[6].name }}</b></span>
+                <span class="span4"><b class="itemname">{{ restaurant_list[7].name }}</b></span>
               </div>
-              {% endfor %}
             </div> 
             <button class="spin" onclick="rotateFunction()">SPIN</button>
           </div>
