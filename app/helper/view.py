@@ -6,4 +6,6 @@ from app.helper.model import get_random_restaurant
 @app.route('/helper/<flag>/<user_id>', methods=['GET', 'POST'])  
 def helper(flag, user_id):  
     restaurant_list = get_random_restaurant(flag, user_id)
+    if flag == "1":
+    	print(f'The restaurant list is {restaurant_list}')
     return render_template('helper/helper.html', user_id=user_id, restaurant_list=restaurant_list)

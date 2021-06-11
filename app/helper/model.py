@@ -14,8 +14,12 @@ def get_random_restaurant(flag, user_id):
     elif flag == "1": #favorite
         user = UserRegister.query.filter_by(id=user_id).first()
         favorite_list = user.get_favorite().split()
+
+        restaurant_list = []
         for favorite in favorite_list:
             restaurant = Restaurant.query.filter_by(place_id=favorite).first()
             restaurant_list.append(restaurant)
-        result_list = random.sample(restaurant_list, 8)
+
+        for i in range(8):
+            result_list.append(random.sample(restaurant_list, 1))
     return result_list
