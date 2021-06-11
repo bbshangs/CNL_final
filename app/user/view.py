@@ -1,7 +1,7 @@
 from app.user.model import UserRegister
 from app.user.form import FormRegister, FormLogin
 from app import app, db
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, redirect, url_for
 from hashlib import sha256
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -24,6 +24,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = FormLogin()
+    err_msg = ""
     if form.validate_on_submit():
         user = UserRegister.query.filter_by(username=form.username.data).first()
         password_hash = sha256(form.password.data.encode()).hexdigest()
@@ -32,7 +33,7 @@ def login():
                 user_id = user.get_id()
                 return redirect(url_for('home', user_id=user_id))
             else:
-                flash('Wrong Password')
+                err_msg = 'Wrong Password'
         else:
-            flash('Wrong UserName or Password')
-    return render_template('user/login.html', form=form)
+            err_msg = 'Wrong UserName or Password'
+    return render_template('user/login.html', form=form, err_msg=err_msg)

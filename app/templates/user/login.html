@@ -41,20 +41,17 @@ https://templatemo.com/tm-539-simple-house
 						</nav>	
 					</div>
 				</div>
+				<script type="text/javascript">
+					var err_msg = '{{ err_msg }}'
+					{% if err_msg %}
+						alert(err_msg);
+					{% endif %}
+				</script>
 			</div>
 		</div>
 		<main>
 			{% import "bootstrap/wtf.html" as wtf %}   
 			<header class="login_form">
-				{% with messages = get_flashed_messages() %}
-					{% if messages %}
-						<ul class="flash">
-							{% for message in messages %}
-								<li>{{ message }}</li>
-							 {% endfor %}
-						</ul>
-    				{% endif %}
-    			{% endwith %}
 				<h2 class="col-12 text-center tm-section-title">Enter your account to start.</h2>
     			{{ wtf.quick_form(form) }}
 			</header>    
