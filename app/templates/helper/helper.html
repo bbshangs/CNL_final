@@ -27,7 +27,7 @@
                 <ul class="tm-nav-ul">
                   <li class="tm-nav-li"><a href="{{ url_for('home', user_id=user_id) }}" class="tm-nav-link">Home</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('favorite', user_id=user_id) }}" class="tm-nav-link">My Favorite</a></li>
-                  <li class="tm-nav-li"><a href="{{ url_for('helper', user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
+                  <li class="tm-nav-li"><a href="{{ url_for('helper', flag = 0, user_id=user_id) }}" class="tm-nav-link active">Helper</a></li>
                   <li class="tm-nav-li"><a href="{{ url_for('base') }}" class="tm-nav-link">Logout</a></li>
                 </ul>
               </nav>  
@@ -36,9 +36,9 @@
         </div>
       </div>
         <main>
-          <ul>
-            <li><a href="{{ url_for('home', user_id=user_id) }}">Choose From All</a></li>
-            <li><a href="{{ url_for('favorite', user_id=user_id) }}">Choose From Favorite</a></li>
+          <ul class="flag">
+            <li><a href="{{ url_for('helper', flag = 0, user_id=user_id) }}">Choose From All</a></li>
+            <li><a href="{{ url_for('helper', flag = 1, user_id=user_id) }}">Choose From Favorite</a></li>
           </ul>
           <div id="mainbox" class="mainbox">
             <div id="box" class="box">

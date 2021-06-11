@@ -7,7 +7,7 @@
 
 .mainbox{
   position: relative;
-  right: -300px;
+  right: -340px;
   bottom: -50px;
   width: 500px;
   height: 500px;
@@ -113,6 +113,14 @@ span b{
 .spin:active{
   width: 70px;
   height: 70px;
+  font-size: 20px;
+}
+
+ul.flag {
+  display: table;
+  margin: 0 auto;
+  list-style: none;
+  line-height: 40px;
   font-size: 20px;
 }
 
