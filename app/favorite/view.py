@@ -7,7 +7,6 @@ from app.restaurant.model import Restaurant
 def favorite(user_id):
     user = UserRegister.query.filter_by(id=user_id).first()
     favorite_list = user.get_favorite().split()
-
     restaurant_list = []
     for favorite in favorite_list:
         restaurant = Restaurant.query.filter_by(place_id=favorite).first()
