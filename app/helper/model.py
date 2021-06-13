@@ -6,7 +6,6 @@ import random
 
 def get_random_restaurant(flag, user_id):
     result_list = []
-    err_msg = ""
 
     if flag == "0": #all
         for i in range(8):
@@ -18,18 +17,17 @@ def get_random_restaurant(flag, user_id):
         favorite_string = user.get_favorite()
 
         if len(favorite_string) == 0:
-            err_msg = "Error"
-            return result_list, err_msg
+            for i in range(8):
+                restaurant = Restaurant.query.order_by(func.random()).first()
+                result_list.append(restaurant)
+        else:
+            favorite_list = favorite_string.split()
+            
+            restaurant_list = []
+            for favorite in favorite_list:
+                restaurant = Restaurant.query.filter_by(place_id=favorite).first()
+                restaurant_list.append(restaurant)
 
-        favorite_list = favorite_string.split()
-        
-        restaurant_list = []
-        for favorite in favorite_list:
-            restaurant = Restaurant.query.filter_by(place_id=favorite).first()
-            restaurant_list.append(restaurant)
-
-        for i in range(8):
-            result_list.append(random.sample(restaurant_list, 1)[0])
-
-    print(f'Error message in model: {err_msg}')
-    return result_list, err_msg
+            for i in range(8):
+                result_list.append(random.sample(restaurant_list, 1)[0])
+    return result_list
