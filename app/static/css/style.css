@@ -8,7 +8,6 @@
 .mainbox{
   position: relative;
   right: -340px;
-  bottom: -50px;
   width: 500px;
   height: 500px;
 }
@@ -67,9 +66,7 @@ span{
   left: 120px;
 }
 
-.itemname {
-  font-size:100%;
-}
+
 .box1 .span3 b{
    transform: translate(-50%, -50%) rotate(-270deg);
 }
