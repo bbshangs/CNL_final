@@ -52,6 +52,7 @@ class Restaurant(db.Model):
         self.period = str(contents['opening_hours']['weekday_text'])
         self.rating = str(contents['rating'])
         try:
+            # self.period = str(contents['opening_hours']['weekday_text'])
             self.price_level = contents['price_level']
         except:
             pass
