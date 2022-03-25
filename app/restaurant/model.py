@@ -45,18 +45,34 @@ class Restaurant(db.Model):
             exit(0) 
 
         
-        self.name = contents['name']
-        self.location = str(tuple(contents['geometry']['location'].values())) # (lat, lng)
-        self.address = contents['formatted_address']
-        self.phone_number = contents['formatted_phone_number']
-        self.period = str(contents['opening_hours']['weekday_text'])
-        self.rating = str(contents['rating'])
+        try: 
+            self.name = contents['name']
+        except Exception as e:
+            self.name = 'No available name'
         try:
-            # self.period = str(contents['opening_hours']['weekday_text'])
+            self.location = str(tuple(contents['geometry']['location'].values())) # (lat, lng)
+        except Exception as e:
+            self.location = 'No available location'
+        try:
+            self.address = contents['formatted_address']
+        except Exception as e:
+            self.address = 'No available address'
+        try:
+            self.phone_number = contents['formatted_phone_number']
+        except Exception as e:
+            self.phone_number = 'No available phone number'
+        try:
+            self.period = str(contents['opening_hours']['weekday_text'])
+        except Exception as e:
+            self.period = 'No available opening hours'
+        try:
+            self.rating = str(contents['rating'])
+        except Exception as e:
+            self.rating = 'No available rating'
+        try:
             self.price_level = contents['price_level']
         except:
             pass
-        # self.picture = 
         
     def __repr__(self):
         return '<Restaurant %r>' % self.name

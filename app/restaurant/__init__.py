@@ -7,8 +7,8 @@ from app import db
 # get path
 pjdir = os.path.abspath(os.path.dirname(__file__))
 
-GOOGLE_MAPS_EMBED_API_KEY='AIzaSyD7mgftibpKJ7FttbOs1FshTQiFN64xGEo'
-GOOGLE_PLACE_API_KEY='AIzaSyCSyaSAVqfSwnPHOT563sVq9NIho_E1gB4'
+GOOGLE_MAPS_EMBED_API_KEY=input('Please enter your Google maps embed API key: ')
+GOOGLE_PLACE_API_KEY=input('Please enter your Google maps place API key: ')
 
 from app.restaurant.init_db import db, Restaurant
 from app.restaurant import view
